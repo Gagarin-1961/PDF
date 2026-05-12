@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Lumière Beauty Salon offers modern hair, skin, nail, and bridal beauty services in a luxurious, relaxing studio.">
+  <title>Lumière Beauty Salon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #24141a;
+      --muted: #755d66;
+      --rose: #e86b9b;
+      --rose-dark: #c54478;
+      --champagne: #fff0dc;
+      --cream: #fffaf4;
+      --blush: #fde5ec;
+      --gold: #d6a64f;
+      --glass: rgba(255, 255, 255, 0.68);
+      --shadow: 0 24px 70px rgba(115, 56, 82, 0.18);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(255, 205, 221, 0.86), transparent 32rem),
+        radial-gradient(circle at 85% 18%, rgba(255, 236, 190, 0.92), transparent 30rem),
+        linear-gradient(135deg, #fff7f0 0%, #fff 42%, #ffeef5 100%);
+      font-family: Inter, system-ui, sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    body::before,
+    body::after {
+      position: fixed;
+      z-index: -1;
+      width: 20rem;
+      height: 20rem;
+      content: "";
+      border-radius: 999px;
+      filter: blur(5px);
+      opacity: 0.52;
+      animation: float-orb 13s ease-in-out infinite alternate;
+    }
+
+    body::before {
+      top: 12%;
+      left: -7rem;
+      background: linear-gradient(135deg, rgba(232, 107, 155, 0.24), rgba(255, 214, 151, 0.45));
+    }
+
+    body::after {
+      right: -6rem;
+      bottom: 8%;
+      background: linear-gradient(135deg, rgba(245, 186, 209, 0.48), rgba(214, 166, 79, 0.22));
+      animation-delay: -5s;
+    }
+
+    @keyframes float-orb {
+      from {
+        transform: translate3d(0, 0, 0) scale(1);
+      }
+
+      to {
+        transform: translate3d(1.5rem, -2rem, 0) scale(1.08);
+      }
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .shell {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.54);
+      background: rgba(255, 250, 244, 0.78);
+      backdrop-filter: blur(22px);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      padding: 1rem 0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.72rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+
+    .logo-mark {
+      display: grid;
+      width: 2.65rem;
+      height: 2.65rem;
+      color: white;
+      background: linear-gradient(135deg, var(--rose), var(--gold));
+      border-radius: 1rem;
+      box-shadow: 0 12px 34px rgba(232, 107, 155, 0.34);
+      place-items: center;
+    }
+
+    .logo small {
+      display: block;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      color: var(--muted);
+      font-size: 0.94rem;
+      font-weight: 700;
+    }
+
+    .nav-links a {
+      transition: color 180ms ease, transform 180ms ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--rose-dark);
+      transform: translateY(-2px);
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      min-height: 3.2rem;
+      padding: 0.92rem 1.35rem;
+      color: white;
+      background: linear-gradient(135deg, var(--rose), var(--rose-dark));
+      border: 0;
+      border-radius: 999px;
+      box-shadow: 0 18px 36px rgba(232, 107, 155, 0.34);
+      font: inherit;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+
+    .button:hover {
+      box-shadow: 0 24px 42px rgba(197, 68, 120, 0.4);
+      transform: translateY(-3px);
+    }
+
+    .button.secondary {
+      color: var(--ink);
+      background: rgba(255, 255, 255, 0.66);
+      border: 1px solid rgba(232, 107, 155, 0.22);
+      box-shadow: none;
+    }
+
+    .hero {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1.02fr) minmax(320px, 0.78fr);
+      gap: 3rem;
+      align-items: center;
+      min-height: calc(100vh - 78px);
+      padding: 5rem 0;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      margin-bottom: 1.1rem;
+      padding: 0.48rem 0.75rem;
+      color: var(--rose-dark);
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(232, 107, 155, 0.18);
+      border-radius: 999px;
+      box-shadow: 0 12px 24px rgba(115, 56, 82, 0.08);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .spark {
+      display: inline-grid;
+      width: 1.25rem;
+      height: 1.25rem;
+      color: white;
+      background: linear-gradient(135deg, var(--gold), var(--rose));
+      border-radius: 50%;
+      place-items: center;
+    }
+
+    h1,
+    h2,
+    .quote {
+      font-family: Italiana, Georgia, serif;
+      font-weight: 400;
+      line-height: 0.96;
+      letter-spacing: -0.055em;
+    }
+
+    h1 {
+      max-width: 760px;
+      font-size: clamp(4rem, 10vw, 8.35rem);
+    }
+
+    h1 span {
+      color: var(--rose-dark);
+      text-shadow: 0 20px 44px rgba(232, 107, 155, 0.16);
+    }
+
+    .hero p {
+      max-width: 620px;
+      margin: 1.45rem 0 2rem;
+      color: var(--muted);
+      font-size: clamp(1.05rem, 2vw, 1.28rem);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+
+    .trust-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .trust-card {
+      min-width: 9.5rem;
+      padding: 1rem 1.1rem;
+      background: rgba(255, 255, 255, 0.58);
+      border: 1px solid rgba(255, 255, 255, 0.66);
+      border-radius: 1.3rem;
+      box-shadow: 0 18px 44px rgba(115, 56, 82, 0.09);
+      backdrop-filter: blur(20px);
+    }
+
+    .trust-card strong {
+      display: block;
+      font-size: 1.45rem;
+      line-height: 1;
+    }
+
+    .trust-card small {
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .portrait-wrap {
+      position: relative;
+      min-height: 610px;
+    }
+
+    .portrait-card {
+      position: absolute;
+      inset: 1.5rem 0 0 3rem;
+      overflow: hidden;
+      background:
+        linear-gradient(160deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.52)),
+        url("https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=900&q=85") center/cover;
+      border: 1px solid rgba(255, 255, 255, 0.72);
+      border-radius: 44% 56% 43% 57% / 55% 43% 57% 45%;
+      box-shadow: var(--shadow);
+      animation: morph 9s ease-in-out infinite alternate;
+    }
+
+    @keyframes morph {
+      from {
+        border-radius: 44% 56% 43% 57% / 55% 43% 57% 45%;
+        transform: translateY(0) rotate(-1deg);
+      }
+
+      to {
+        border-radius: 57% 43% 58% 42% / 42% 57% 43% 58%;
+        transform: translateY(-0.8rem) rotate(1.5deg);
+      }
+    }
+
+    .glow-ring {
+      position: absolute;
+      inset: 4.2rem 2.8rem 5.8rem 0;
+      border: 2px solid rgba(214, 166, 79, 0.38);
+      border-radius: 46% 54% 44% 56% / 58% 43% 57% 42%;
+      animation: spin-soft 18s linear infinite;
+    }
+
+    @keyframes spin-soft {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .floating-panel {
+      position: absolute;
+      right: 0;
+      bottom: 5.4rem;
+      width: min(22rem, 86%);
+      padding: 1.15rem;
+      background: rgba(255, 255, 255, 0.76);
+      border: 1px solid rgba(255, 255, 255, 0.78);
+      border-radius: 1.55rem;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(22px);
+    }
+
+    .floating-panel strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 1rem;
+    }
+
+    .floating-panel span {
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .section {
+      padding: 5.6rem 0;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .section-heading h2 {
+      max-width: 650px;
+      font-size: clamp(3.2rem, 7vw, 5.6rem);
+    }
+
+    .section-heading p {
+      max-width: 440px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+
+    .service-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 19rem;
+      padding: 1.25rem;
+      background: rgba(255, 255, 255, 0.62);
+      border: 1px solid rgba(255, 255, 255, 0.72);
+      border-radius: 1.8rem;
+      box-shadow: 0 18px 46px rgba(115, 56, 82, 0.1);
+      transition: transform 220ms ease, box-shadow 220ms ease;
+    }
+
+    .service-card:hover {
+      box-shadow: 0 28px 66px rgba(115, 56, 82, 0.16);
+      transform: translateY(-8px);
+    }
+
+    .service-card::before {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      content: "";
+      background: linear-gradient(180deg, transparent, rgba(255, 229, 236, 0.86));
+      opacity: 0;
+      transition: opacity 220ms ease;
+    }
+
+    .service-card:hover::before {
+      opacity: 1;
+    }
+
+    .service-icon {
+      display: grid;
+      width: 3.2rem;
+      height: 3.2rem;
+      margin-bottom: 5.5rem;
+      color: white;
+      background: linear-gradient(135deg, var(--rose), var(--gold));
+      border-radius: 1.2rem;
+      box-shadow: 0 16px 30px rgba(232, 107, 155, 0.28);
+      font-size: 1.35rem;
+      place-items: center;
+    }
+
+    .service-card h3 {
+      margin-bottom: 0.55rem;
+      font-size: 1.22rem;
+    }
+
+    .service-card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .service-card strong {
+      display: inline-block;
+      margin-top: 1rem;
+      color: var(--rose-dark);
+    }
+
+    .experience {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 2rem;
+      align-items: stretch;
+    }
+
+    .image-stack {
+      position: relative;
+      min-height: 560px;
+    }
+
+    .image-stack .photo {
+      position: absolute;
+      overflow: hidden;
+      border: 10px solid rgba(255, 255, 255, 0.74);
+      border-radius: 2rem;
+      box-shadow: var(--shadow);
+    }
+
+    .photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 800ms ease;
+    }
+
+    .photo:hover img {
+      transform: scale(1.08);
+    }
+
+    .photo.one {
+      inset: 0 20% 24% 0;
+    }
+
+    .photo.two {
+      inset: 34% 0 0 28%;
+    }
+
+    .quote-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 560px;
+      padding: clamp(1.5rem, 4vw, 3rem);
+      color: white;
+      background:
+        linear-gradient(135deg, rgba(36, 20, 26, 0.82), rgba(197, 68, 120, 0.72)),
+        url("https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&w=1200&q=85") center/cover;
+      border-radius: 2.4rem;
+      box-shadow: var(--shadow);
+    }
+
+    .quote {
+      font-size: clamp(3rem, 6vw, 5.2rem);
+    }
+
+    .quote-card p {
+      max-width: 520px;
+      color: rgba(255, 255, 255, 0.78);
+      font-weight: 600;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      grid-auto-rows: 13rem;
+      gap: 1rem;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 1.6rem;
+      box-shadow: 0 18px 44px rgba(115, 56, 82, 0.12);
+    }
+
+    .gallery-item::after {
+      position: absolute;
+      inset: 0;
+      content: "";
+      background: linear-gradient(180deg, transparent 45%, rgba(36, 20, 26, 0.54));
+      opacity: 0;
+      transition: opacity 220ms ease;
+    }
+
+    .gallery-item:hover::after {
+      opacity: 1;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 700ms ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.08);
+    }
+
+    .wide {
+      grid-column: span 3;
+    }
+
+    .tall {
+      grid-row: span 2;
+      grid-column: span 2;
+    }
+
+    .small {
+      grid-column: span 2;
+    }
+
+    .booking {
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr 0.85fr;
+      gap: 2rem;
+      padding: clamp(1.35rem, 4vw, 3rem);
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.76), rgba(255, 229, 236, 0.72)),
+        radial-gradient(circle at right, rgba(232, 107, 155, 0.2), transparent 20rem);
+      border: 1px solid rgba(255, 255, 255, 0.76);
+      border-radius: 2.4rem;
+      box-shadow: var(--shadow);
+    }
+
+    .booking h2 {
+      font-size: clamp(3.2rem, 7vw, 5.7rem);
+    }
+
+    .booking p {
+      max-width: 620px;
+      margin: 1rem 0 1.5rem;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .booking-card {
+      padding: 1.35rem;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(255, 255, 255, 0.82);
+      border-radius: 1.8rem;
+      box-shadow: 0 16px 42px rgba(115, 56, 82, 0.12);
+      backdrop-filter: blur(20px);
+    }
+
+    .booking-card ul {
+      display: grid;
+      gap: 0.75rem;
+      list-style: none;
+    }
+
+    .booking-card li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.85rem 0;
+      border-bottom: 1px solid rgba(117, 93, 102, 0.12);
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .booking-card li:last-child {
+      border-bottom: 0;
+    }
+
+    .booking-card strong {
+      color: var(--ink);
+      white-space: nowrap;
+    }
+
+    .footer {
+      padding: 3rem 0;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      border-top: 1px solid rgba(117, 93, 102, 0.14);
+      padding-top: 1.4rem;
+    }
+
+    .reveal {
+      animation: reveal 0.9s ease both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 32%;
+    }
+
+    @keyframes reveal {
+      from {
+        opacity: 0;
+        transform: translateY(38px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 980px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero,
+      .experience,
+      .booking {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .portrait-wrap {
+        min-height: 520px;
+      }
+
+      .portrait-card {
+        inset: 0;
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .section-heading {
+        align-items: start;
+        flex-direction: column;
+      }
+
+      .gallery {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .wide,
+      .tall,
+      .small {
+        grid-column: span 1;
+        grid-row: span 1;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .shell {
+        width: min(100% - 28px, 1180px);
+      }
+
+      .hero {
+        padding: 3rem 0;
+      }
+
+      h1 {
+        font-size: 3.7rem;
+      }
+
+      .services-grid,
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .service-icon {
+        margin-bottom: 3.2rem;
+      }
+
+      .image-stack,
+      .quote-card {
+        min-height: 440px;
+      }
+
+      .photo.one {
+        inset: 0 10% 34% 0;
+      }
+
+      .photo.two {
+        inset: 42% 0 0 16%;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="shell nav-inner">
+      <a class="logo" href="#top" aria-label="Lumière Beauty Salon home">
+        <span class="logo-mark">✦</span>
+        <span>Lumière<small>Beauty Salon</small></span>
+      </a>
+      <div class="nav-links" aria-label="Main navigation">
+        <a href="#services">Services</a>
+        <a href="#experience">Experience</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#booking">Booking</a>
+      </div>
+      <a class="button" href="#booking">Reserve Glow</a>
+    </div>
+  </nav>
+
+  <main id="top">
+    <section class="shell hero">
+      <div>
+        <div class="eyebrow"><span class="spark">✧</span>Luxury salon studio</div>
+        <h1>Reveal your most radiant <span>beauty.</span></h1>
+        <p>Step into a softly lit sanctuary where expert stylists, skin therapists, and nail artists create elevated looks with a calm, couture touch.</p>
+        <div class="hero-actions">
+          <a class="button" href="#booking">Book an Appointment</a>
+          <a class="button secondary" href="#services">Explore Services</a>
+        </div>
+        <div class="trust-row" aria-label="Salon highlights">
+          <div class="trust-card">
+            <strong>4.9★</strong>
+            <small>Guest rating</small>
+          </div>
+          <div class="trust-card">
+            <strong>18k+</strong>
+            <small>Glow-ups styled</small>
+          </div>
+          <div class="trust-card">
+            <strong>12</strong>
+            <small>Beauty experts</small>
+          </div>
+        </div>
+      </div>
+      <div class="portrait-wrap" aria-hidden="true">
+        <div class="glow-ring"></div>
+        <div class="portrait-card"></div>
+        <div class="floating-panel">
+          <strong>Today’s Signature Ritual</strong>
+          <span>Silk blowout, rose quartz facial, and champagne manicure.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="shell section reveal" id="services">
+      <div class="section-heading">
+        <h2>Beauty rituals crafted for every mood.</h2>
+        <p>Choose a single refresh or a full transformation. Every service begins with a personalized consultation and finishes with camera-ready confidence.</p>
+      </div>
+      <div class="services-grid">
+        <article class="service-card">
+          <div class="service-icon">✂</div>
+          <h3>Signature Hair Design</h3>
+          <p>Precision cuts, dimensional color, glossing, and luxe styling for effortless movement.</p>
+          <strong>From $95</strong>
+        </article>
+        <article class="service-card">
+          <div class="service-icon">◐</div>
+          <h3>Radiance Facials</h3>
+          <p>Hydrating, brightening, and sculpting treatments tailored to your skin goals.</p>
+          <strong>From $120</strong>
+        </article>
+        <article class="service-card">
+          <div class="service-icon">♡</div>
+          <h3>Nail Atelier</h3>
+          <p>Soft-gel artistry, clean manicures, pedicures, and luminous hand care rituals.</p>
+          <strong>From $55</strong>
+        </article>
+        <article class="service-card">
+          <div class="service-icon">✦</div>
+          <h3>Bridal Glow Suite</h3>
+          <p>Hair, makeup, skin prep, and finishing touches for an unforgettable entrance.</p>
+          <strong>Custom quote</strong>
+        </article>
+      </div>
+    </section>
+
+    <section class="shell section experience reveal" id="experience">
+      <div class="image-stack" aria-label="Salon atmosphere">
+        <div class="photo one">
+          <img src="https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?auto=format&fit=crop&w=900&q=85" alt="Elegant manicure service with soft salon lighting">
+        </div>
+        <div class="photo two">
+          <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=900&q=85" alt="Modern salon interior with styling chairs">
+        </div>
+      </div>
+      <div class="quote-card">
+        <div>
+          <div class="eyebrow"><span class="spark">✧</span>The Lumière method</div>
+          <p class="quote">Soft luxury, expert detail, unforgettable confidence.</p>
+        </div>
+        <p>Our stylists blend trend-aware artistry with timeless technique, premium products, and soothing rituals that make every appointment feel like a private escape.</p>
+      </div>
+    </section>
+
+    <section class="shell section reveal" id="gallery">
+      <div class="section-heading">
+        <h2>A salon made to be remembered.</h2>
+        <p>From glossy finishes to plush interiors, every detail is designed to make clients feel beautiful before the service even begins.</p>
+      </div>
+      <div class="gallery">
+        <div class="gallery-item wide">
+          <img src="https://images.unsplash.com/photo-1522338242992-e1a54906a8da?auto=format&fit=crop&w=1100&q=85" alt="Professional makeup brushes and cosmetics">
+        </div>
+        <div class="gallery-item tall">
+          <img src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&fit=crop&w=800&q=85" alt="Luxury beauty products arranged on a vanity">
+        </div>
+        <div class="gallery-item small">
+          <img src="https://images.unsplash.com/photo-1600948836101-f9ffda59d250?auto=format&fit=crop&w=900&q=85" alt="Hair stylist applying color treatment">
+        </div>
+        <div class="gallery-item small">
+          <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=900&q=85" alt="Glossy styled hair close up">
+        </div>
+        <div class="gallery-item wide">
+          <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=1100&q=85" alt="Salon blowout styling session">
+        </div>
+      </div>
+    </section>
+
+    <section class="shell section reveal" id="booking">
+      <div class="booking">
+        <div>
+          <div class="eyebrow"><span class="spark">✧</span>Appointments</div>
+          <h2>Your glow moment starts here.</h2>
+          <p>Reserve a consultation, plan a full beauty day, or book a quick polish refresh. Our concierge will match you with the perfect specialist.</p>
+          <a class="button" href="mailto:hello@lumiere-salon.example?subject=Beauty%20Salon%20Appointment">Request Appointment</a>
+        </div>
+        <aside class="booking-card" aria-label="Opening hours">
+          <ul>
+            <li><span>Monday - Thursday</span><strong>9:00 - 19:00</strong></li>
+            <li><span>Friday</span><strong>9:00 - 21:00</strong></li>
+            <li><span>Saturday</span><strong>10:00 - 18:00</strong></li>
+            <li><span>Sunday</span><strong>Private events</strong></li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="shell footer">
+    <div class="footer-inner">
+      <span>© 2026 Lumière Beauty Salon. All rights reserved.</span>
+      <span>123 Rose Avenue · hello@lumiere-salon.example · (555) 014-8899</span>
+    </div>
+  </footer>
+</body>
+</html>
