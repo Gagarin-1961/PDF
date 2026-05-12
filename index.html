@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SANDRA — салон красоты в Красносельском районе Санкт-Петербурга на проспекте Ветеранов, 146/22. Стрижки, окрашивание, маникюр, педикюр, косметология, брови, ресницы и SPA-уход.">
+  <meta name="keywords" content="SANDRA салон красоты, САНДРА Ветеранов 146, салон красоты Красносельский район, маникюр СПб, стрижка Лигово, косметология СПб">
+  <meta property="og:title" content="SANDRA — салон красоты на пр. Ветеранов">
+  <meta property="og:description" content="Премиальный уход, стрижки, окрашивание, ногтевой сервис и косметология в Красносельском районе Санкт-Петербурга.">
+  <meta property="og:type" content="business.business">
+  <meta property="og:locale" content="ru_RU">
+  <title>SANDRA — салон красоты в Красносельском районе СПб</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BeautySalon",
+      "name": "САНДРА — салон красоты",
+      "alternateName": "SANDRA Beauty",
+      "url": "https://sandra-spb.ru/",
+      "telephone": "+7-812-730-69-68",
+      "email": "info@sandra-spb.ru",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "проспект Ветеранов, 146/22",
+        "addressLocality": "Санкт-Петербург",
+        "postalCode": "198264",
+        "addressCountry": "RU"
+      },
+      "openingHoursSpecification": [{
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "10:00",
+        "closes": "21:00"
+      }],
+      "sameAs": [
+        "https://vk.com/sandra_spb",
+        "https://t.me/sandra_spb",
+        "https://instagram.com/sandra_spb"
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Услуги салона красоты",
+        "itemListElement": [
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Парикмахерские услуги"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Маникюр и педикюр"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Косметология"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Брови и ресницы"}}
+        ]
+      }
+    }
+  </script>
+  <style>
+    :root {
+      --ink: #1a1512;
+      --muted: #74665d;
+      --gold: #c9a96e;
+      --gold-soft: #f1e4c8;
+      --rose: #c2547a;
+      --cream: #faf8f5;
+      --white: rgba(255, 255, 255, 0.82);
+      --dark: #151210;
+      --shadow: 0 28px 80px rgba(84, 58, 38, 0.16);
+      --radius: 30px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      min-height: 100vh;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 8% 10%, rgba(194, 84, 122, 0.22), transparent 25rem),
+        radial-gradient(circle at 88% 18%, rgba(201, 169, 110, 0.32), transparent 30rem),
+        linear-gradient(135deg, #fffaf3 0%, #fff 42%, #f8eee9 100%);
+      font-family: Montserrat, system-ui, sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    body::before, body::after {
+      position: fixed;
+      z-index: -1;
+      content: "";
+      width: 26rem;
+      height: 26rem;
+      border-radius: 999px;
+      filter: blur(10px);
+      opacity: 0.55;
+      animation: float 12s ease-in-out infinite alternate;
+    }
+
+    body::before {
+      left: -10rem;
+      top: 18rem;
+      background: linear-gradient(135deg, rgba(194, 84, 122, 0.25), rgba(201, 169, 110, 0.28));
+    }
+
+    body::after {
+      right: -9rem;
+      bottom: 4rem;
+      background: linear-gradient(135deg, rgba(201, 169, 110, 0.28), rgba(250, 248, 245, 0.6));
+      animation-delay: -5s;
+    }
+
+    @keyframes float { to { transform: translate3d(2rem, -2.5rem, 0) scale(1.08); } }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    .shell { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.65);
+      background: rgba(250, 248, 245, 0.78);
+      backdrop-filter: blur(22px);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.4rem;
+      padding: 0.95rem 0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+    }
+
+    .logo-mark {
+      display: grid;
+      width: 2.8rem;
+      height: 2.8rem;
+      color: white;
+      background: linear-gradient(135deg, var(--gold), var(--rose));
+      border-radius: 50%;
+      box-shadow: 0 14px 32px rgba(194, 84, 122, 0.28);
+      place-items: center;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+    }
+
+    .logo small {
+      display: block;
+      color: var(--muted);
+      font-size: 0.64rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.1rem;
+      color: var(--muted);
+      font-size: 0.86rem;
+      font-weight: 700;
+    }
+
+    .nav-links a { transition: color 180ms ease, transform 180ms ease; }
+    .nav-links a:hover { color: var(--rose); transform: translateY(-2px); }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 3.1rem;
+      padding: 0.88rem 1.35rem;
+      color: white;
+      background: linear-gradient(135deg, var(--rose), #9b3c61);
+      border: 0;
+      border-radius: 999px;
+      box-shadow: 0 18px 36px rgba(194, 84, 122, 0.28);
+      font: inherit;
+      font-size: 0.92rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+
+    .button:hover { box-shadow: 0 24px 44px rgba(155, 60, 97, 0.36); transform: translateY(-3px); }
+    .button.secondary { color: var(--ink); background: rgba(255, 255, 255, 0.72); border: 1px solid rgba(201, 169, 110, 0.36); box-shadow: none; }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 0.82fr);
+      gap: 3rem;
+      align-items: center;
+      min-height: calc(100vh - 76px);
+      padding: 5rem 0;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      margin-bottom: 1.1rem;
+      padding: 0.5rem 0.8rem;
+      color: var(--rose);
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(194, 84, 122, 0.18);
+      border-radius: 999px;
+      box-shadow: 0 12px 24px rgba(84, 58, 38, 0.08);
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .spark {
+      display: inline-grid;
+      width: 1.28rem;
+      height: 1.28rem;
+      color: white;
+      background: linear-gradient(135deg, var(--gold), var(--rose));
+      border-radius: 50%;
+      place-items: center;
+    }
+
+    h1, h2, .quote {
+      font-family: "Playfair Display", Georgia, serif;
+      font-weight: 600;
+      line-height: 0.98;
+      letter-spacing: -0.04em;
+    }
+
+    h1 { max-width: 760px; font-size: clamp(3.4rem, 8vw, 7.2rem); }
+    h1 span { color: var(--rose); }
+
+    .hero-text {
+      max-width: 650px;
+      margin: 1.35rem 0 2rem;
+      color: var(--muted);
+      font-size: clamp(1.02rem, 2vw, 1.22rem);
+      font-weight: 500;
+    }
+
+    .hero-actions, .trust-row { display: flex; flex-wrap: wrap; gap: 0.9rem; align-items: center; }
+    .trust-row { margin-top: 2rem; }
+
+    .trust-card {
+      min-width: 9.8rem;
+      padding: 1rem 1.1rem;
+      background: rgba(255, 255, 255, 0.66);
+      border: 1px solid rgba(255, 255, 255, 0.72);
+      border-radius: 1.25rem;
+      box-shadow: 0 18px 44px rgba(84, 58, 38, 0.09);
+      backdrop-filter: blur(20px);
+    }
+
+    .trust-card strong { display: block; font-size: 1.35rem; line-height: 1; }
+    .trust-card small { color: var(--muted); font-size: 0.78rem; font-weight: 700; }
+
+    .portrait-wrap { position: relative; min-height: 610px; }
+
+    .portrait-card {
+      position: absolute;
+      inset: 2rem 0 0 2rem;
+      overflow: hidden;
+      background:
+        linear-gradient(160deg, rgba(21, 18, 16, 0.08), rgba(250, 248, 245, 0.32)),
+        url("https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=1000&q=85") center/cover;
+      border: 1px solid rgba(255, 255, 255, 0.72);
+      border-radius: 40% 60% 47% 53% / 56% 42% 58% 44%;
+      box-shadow: var(--shadow);
+      animation: morph 9s ease-in-out infinite alternate;
+    }
+
+    @keyframes morph { to { border-radius: 57% 43% 58% 42% / 42% 57% 43% 58%; transform: translateY(-0.8rem) rotate(1.4deg); } }
+
+    .glow-ring {
+      position: absolute;
+      inset: 5rem 3rem 5.5rem 0;
+      border: 2px solid rgba(201, 169, 110, 0.44);
+      border-radius: 46% 54% 44% 56% / 58% 43% 57% 42%;
+      animation: spin 20s linear infinite;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .floating-panel {
+      position: absolute;
+      right: 0;
+      bottom: 4.8rem;
+      width: min(23rem, 88%);
+      padding: 1.2rem;
+      background: rgba(255, 255, 255, 0.78);
+      border: 1px solid rgba(255, 255, 255, 0.82);
+      border-radius: 1.5rem;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(22px);
+    }
+
+    .floating-panel strong { display: block; margin-bottom: 0.35rem; }
+    .floating-panel span { color: var(--muted); font-size: 0.9rem; font-weight: 600; }
+    .section { padding: 5.5rem 0; }
+
+    .section-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .section-heading h2 { max-width: 700px; font-size: clamp(2.7rem, 6vw, 5.4rem); }
+    .section-heading p { max-width: 450px; color: var(--muted); font-weight: 600; }
+
+    .about-grid, .booking-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 2rem;
+      align-items: stretch;
+    }
+
+    .glass-card {
+      padding: clamp(1.35rem, 4vw, 2.4rem);
+      background: rgba(255, 255, 255, 0.68);
+      border: 1px solid rgba(255, 255, 255, 0.72);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(20px);
+    }
+
+    .about-photo {
+      min-height: 470px;
+      background:
+        linear-gradient(180deg, rgba(21, 18, 16, 0.04), rgba(21, 18, 16, 0.18)),
+        url("https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?auto=format&fit=crop&w=1000&q=85") center/cover;
+    }
+
+    .about-copy p { margin-bottom: 1rem; color: var(--muted); font-weight: 500; }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+
+    .service-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 22rem;
+      padding: 1.25rem;
+      background: rgba(255, 255, 255, 0.68);
+      border: 1px solid rgba(255, 255, 255, 0.72);
+      border-radius: 1.6rem;
+      box-shadow: 0 18px 46px rgba(84, 58, 38, 0.1);
+      transition: transform 220ms ease, box-shadow 220ms ease;
+    }
+
+    .service-card:hover { box-shadow: 0 28px 66px rgba(84, 58, 38, 0.16); transform: translateY(-8px); }
+
+    .service-icon {
+      display: grid;
+      width: 3.1rem;
+      height: 3.1rem;
+      margin-bottom: 3.8rem;
+      color: white;
+      background: linear-gradient(135deg, var(--gold), var(--rose));
+      border-radius: 1rem;
+      box-shadow: 0 16px 30px rgba(201, 169, 110, 0.28);
+      font-size: 1.3rem;
+      place-items: center;
+    }
+
+    .service-card h3 { margin-bottom: 0.55rem; font-size: 1.1rem; }
+    .service-card p, .service-card li { color: var(--muted); font-size: 0.9rem; font-weight: 600; }
+    .service-card ul { display: grid; gap: 0.35rem; margin: 0.8rem 0 1rem; padding-left: 1.1rem; }
+    .price { display: inline-block; color: var(--rose); font-weight: 800; }
+
+    .price-section {
+      background:
+        linear-gradient(135deg, rgba(21, 18, 16, 0.92), rgba(54, 35, 27, 0.88)),
+        radial-gradient(circle at 15% 10%, rgba(201, 169, 110, 0.24), transparent 28rem);
+      color: white;
+      border-radius: 3rem;
+      padding: clamp(1.4rem, 4vw, 3rem);
+      box-shadow: var(--shadow);
+    }
+
+    .price-section .section-heading p { color: rgba(255, 255, 255, 0.72); }
+    .price-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+
+    .price-card {
+      padding: 1.2rem;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 1.35rem;
+      transition: background 180ms ease, transform 180ms ease;
+    }
+
+    .price-card:hover { background: rgba(255, 255, 255, 0.13); transform: translateY(-4px); }
+    .price-card h3 { margin-bottom: 0.65rem; color: var(--gold-soft); font-size: 1.05rem; }
+    .price-card ul { display: grid; gap: 0.55rem; list-style: none; }
+
+    .price-card li {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      color: rgba(255, 255, 255, 0.78);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 0.45rem;
+      font-size: 0.88rem;
+      font-weight: 600;
+    }
+
+    .price-card strong { color: white; white-space: nowrap; }
+
+    .gallery { display: grid; grid-template-columns: repeat(6, 1fr); grid-auto-rows: 13rem; gap: 1rem; }
+    .gallery-item { position: relative; overflow: hidden; border-radius: 1.45rem; box-shadow: 0 18px 44px rgba(84, 58, 38, 0.12); }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 700ms ease; }
+    .gallery-item:hover img { transform: scale(1.08); }
+    .wide { grid-column: span 3; }
+    .tall { grid-row: span 2; grid-column: span 2; }
+    .small { grid-column: span 2; }
+
+    .booking-card h3 { margin-bottom: 1rem; font-size: 1.45rem; }
+    .contact-list, .hours { display: grid; gap: 0.9rem; list-style: none; }
+
+    .contact-list li, .hours li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.85rem 0;
+      border-bottom: 1px solid rgba(117, 102, 93, 0.12);
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .contact-list strong, .hours strong { color: var(--ink); }
+    .social-links { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-top: 1.3rem; }
+    .social-links a { padding: 0.62rem 0.9rem; border: 1px solid rgba(201, 169, 110, 0.28); border-radius: 999px; color: var(--rose); background: rgba(255, 255, 255, 0.58); font-size: 0.82rem; font-weight: 800; }
+
+    .form { display: grid; gap: 0.8rem; }
+    .form input, .form select, .form textarea {
+      width: 100%;
+      padding: 0.95rem 1rem;
+      color: var(--ink);
+      background: rgba(255, 255, 255, 0.74);
+      border: 1px solid rgba(201, 169, 110, 0.26);
+      border-radius: 1rem;
+      font: inherit;
+    }
+
+    .form textarea { min-height: 8rem; resize: vertical; }
+    .map-card { overflow: hidden; padding: 0; min-height: 26rem; }
+    .map-card iframe { width: 100%; height: 100%; min-height: 26rem; border: 0; display: block; }
+
+    .footer { padding: 3rem 0; color: var(--muted); font-weight: 700; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 1rem; border-top: 1px solid rgba(117, 102, 93, 0.14); padding-top: 1.4rem; }
+
+    .reveal { animation: reveal 0.9s ease both; animation-timeline: view(); animation-range: entry 0% cover 30%; }
+    @keyframes reveal { from { opacity: 0; transform: translateY(36px); } to { opacity: 1; transform: translateY(0); } }
+
+    @media (max-width: 1020px) {
+      .nav-links { display: none; }
+      .hero, .about-grid, .booking-grid { grid-template-columns: 1fr; }
+      .hero { min-height: auto; }
+      .portrait-wrap { min-height: 520px; }
+      .portrait-card { inset: 0; }
+      .services-grid, .price-grid { grid-template-columns: repeat(2, 1fr); }
+      .section-heading { align-items: start; flex-direction: column; }
+      .gallery { grid-template-columns: repeat(2, 1fr); }
+      .wide, .tall, .small { grid-column: span 1; grid-row: span 1; }
+    }
+
+    @media (max-width: 640px) {
+      .shell { width: min(100% - 28px, 1180px); }
+      h1 { font-size: 3.15rem; }
+      .hero { padding: 3rem 0; }
+      .nav-inner { gap: 0.7rem; }
+      .button { padding-inline: 1rem; }
+      .services-grid, .price-grid, .gallery { grid-template-columns: 1fr; }
+      .service-icon { margin-bottom: 2.3rem; }
+      .price-card li, .contact-list li, .hours li, .footer-inner { align-items: flex-start; flex-direction: column; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="shell nav-inner">
+      <a class="logo" href="#top" aria-label="SANDRA — главная">
+        <span class="logo-mark">S</span>
+        <span>SANDRA<small>салон красоты</small></span>
+      </a>
+      <div class="nav-links" aria-label="Основная навигация">
+        <a href="#about">О салоне</a>
+        <a href="#services">Услуги</a>
+        <a href="#price">Прайс</a>
+        <a href="#gallery">Работы</a>
+        <a href="#contacts">Контакты</a>
+      </div>
+      <a class="button" href="tel:+78127306968">Позвонить</a>
+    </div>
+  </nav>
+
+  <main id="top">
+    <section class="shell hero">
+      <div>
+        <div class="eyebrow"><span class="spark">✦</span>Красносельский район · СПб</div>
+        <h1>Салон красоты <span>САНДРА</span> на Ветеранов 146</h1>
+        <p class="hero-text">Премиальный уход с 2010 года: женские и мужские стрижки, окрашивание, маникюр, педикюр, косметология, брови, ресницы и SPA-ритуалы в одном пространстве.</p>
+        <div class="hero-actions">
+          <a class="button" href="#contacts">Записаться</a>
+          <a class="button secondary" href="#services">Смотреть услуги</a>
+        </div>
+        <div class="trust-row" aria-label="Преимущества салона">
+          <div class="trust-card"><strong>14+</strong><small>лет опыта</small></div>
+          <div class="trust-card"><strong>50+</strong><small>мастеров</small></div>
+          <div class="trust-card"><strong>15 000+</strong><small>клиентов</small></div>
+        </div>
+      </div>
+      <div class="portrait-wrap" aria-hidden="true">
+        <div class="glow-ring"></div>
+        <div class="portrait-card"></div>
+        <div class="floating-panel"><strong>Сегодня в SANDRA</strong><span>Стрижка, окрашивание, маникюр и косметология — комплексный образ за один визит.</span></div>
+      </div>
+    </section>
+
+    <section class="shell section reveal" id="about">
+      <div class="section-heading">
+        <h2>Салон для полного обновления образа.</h2>
+        <p>SANDRA находится в Красносельском районе Санкт-Петербурга рядом с Лигово, Сосновой Поляной, Урицком, улицами Тамбасова и Здоровцева.</p>
+      </div>
+      <div class="about-grid">
+        <div class="glass-card about-photo" role="img" aria-label="Современный интерьер салона красоты"></div>
+        <div class="glass-card about-copy">
+          <p>Салон красоты SANDRA работает на проспекте Ветеранов с 2010 года и более 14 лет помогает клиентам выглядеть ухоженно и уверенно.</p>
+          <p>В одном пространстве собраны парикмахерский сервис, ногтевой сервис премиум-класса, косметология, брови и ресницы, депиляция, уход за волосами и SPA-процедуры.</p>
+          <p>Мастера регулярно проходят обучение и используют профессиональную косметику Estel, Wella, Redken, Holy Land, Christina и другие бренды.</p>
+          <a class="button secondary" href="#price">Посмотреть цены</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="shell section reveal" id="services">
+      <div class="section-heading">
+        <h2>Услуги SANDRA для красоты каждый день.</h2>
+        <p>Данные по услугам и стартовым ценам перенесены из прайс-листа SANDRA.</p>
+      </div>
+      <div class="services-grid">
+        <article class="service-card"><div class="service-icon">✂</div><h3>Женские стрижки</h3><p>Стрижка, укладка, коррекция чёлки, каре, каскад и уход для волос любой длины.</p><ul><li>Модельная стрижка</li><li>Креатив / Пикси / Каскад</li><li>Мытьё и сушка</li></ul><span class="price">от 1 200 ₽</span></article>
+        <article class="service-card"><div class="service-icon">💈</div><h3>Мужские стрижки</h3><p>Классика, фейд, андеркат, оформление бороды и работа с мужской сединой.</p><ul><li>Модельная стрижка</li><li>Окантовка и борода</li><li>Камуфляж седины</li></ul><span class="price">от 1 000 ₽</span></article>
+        <article class="service-card"><div class="service-icon">🎨</div><h3>Окрашивание</h3><p>Корни, один тон, колорирование, мелирование, блондирование и сложные техники.</p><ul><li>Окрашивание корней</li><li>Air Touch, балаяж, шатуш</li><li>Тонирование</li></ul><span class="price">от 2 100 ₽</span></article>
+        <article class="service-card"><div class="service-icon">💅</div><h3>Маникюр и педикюр</h3><p>Аппаратный уход, Smart-педикюр, укрепление, гель-лак, дизайн и наращивание.</p><ul><li>Маникюр без покрытия</li><li>Гель-лак и укрепление</li><li>Smart-педикюр</li></ul><span class="price">от 1 100 ₽</span></article>
+        <article class="service-card"><div class="service-icon">♡</div><h3>Брови и ресницы</h3><p>Архитектура бровей, окрашивание, ламинирование и наращивание ресниц.</p><ul><li>Коррекция бровей</li><li>Ламинирование</li><li>Наращивание ресниц</li></ul><span class="price">от 700 ₽</span></article>
+        <article class="service-card"><div class="service-icon">◐</div><h3>Косметология</h3><p>Чистка лица, массаж, альгинатные маски, коллагеновые процедуры и уход за руками.</p><ul><li>Механическая чистка лица</li><li>Массаж лица</li><li>Абонементы</li></ul><span class="price">от 1 600 ₽</span></article>
+        <article class="service-card"><div class="service-icon">✦</div><h3>Депиляция и шугаринг</h3><p>Воск, сахарная паста, тридинг и комбо-наборы для нескольких зон.</p><ul><li>Лицо и тело</li><li>Подмышки, руки, ноги</li><li>Комбо 3 зоны</li></ul><span class="price">от 450 ₽</span></article>
+        <article class="service-card"><div class="service-icon">✧</div><h3>Детские услуги</h3><p>Детские стрижки до 6 лет и 6–12 лет, подравнивание, рисунки машинкой.</p><ul><li>Детская стрижка</li><li>Подравнивание чёлки</li><li>Рисунок машинкой</li></ul><span class="price">от 300 ₽</span></article>
+      </div>
+    </section>
+
+    <section class="shell section reveal" id="price">
+      <div class="price-section">
+        <div class="section-heading"><h2>Прайс-лист по ключевым направлениям.</h2><p>Короткая выдержка из прайса: точная стоимость зависит от длины волос, сложности техники и категории мастера.</p></div>
+        <div class="price-grid">
+          <article class="price-card"><h3>Стрижки</h3><ul><li><span>Женская модельная</span><strong>1 200–1 700 ₽</strong></li><li><span>Модельная + укладка</span><strong>1 700–2 600 ₽</strong></li><li><span>Мужская модельная</span><strong>1 000 ₽</strong></li><li><span>Детская стрижка</span><strong>от 700 ₽</strong></li></ul></article>
+          <article class="price-card"><h3>Окрашивание</h3><ul><li><span>Корни</span><strong>от 2 100 ₽</strong></li><li><span>Один тон</span><strong>2 300–3 300 ₽</strong></li><li><span>Мелирование</span><strong>от 2 000 ₽</strong></li><li><span>Сложная техника</span><strong>от 6 000 ₽</strong></li></ul></article>
+          <article class="price-card"><h3>Ногтевой сервис</h3><ul><li><span>Маникюр без покрытия</span><strong>1 100–1 600 ₽</strong></li><li><span>Маникюр + гель-лак</span><strong>от 2 100 ₽</strong></li><li><span>Аппаратный педикюр</span><strong>от 1 900 ₽</strong></li><li><span>Smart-педикюр + гель-лак</span><strong>от 2 600 ₽</strong></li></ul></article>
+          <article class="price-card"><h3>Брови и ресницы</h3><ul><li><span>Архитектура бровей</span><strong>1 100 ₽</strong></li><li><span>Коррекция бровей</span><strong>800 ₽</strong></li><li><span>Ламинирование бровей</span><strong>1 900 ₽</strong></li><li><span>Наращивание ресниц</span><strong>от 2 200 ₽</strong></li></ul></article>
+          <article class="price-card"><h3>Косметология</h3><ul><li><span>Чистка лица</span><strong>2 100 ₽</strong></li><li><span>Массаж лица</span><strong>1 600 ₽</strong></li><li><span>Альгинатная маска</span><strong>600 ₽</strong></li><li><span>Курс массажа 5 сеансов</span><strong>от 6 500 ₽</strong></li></ul></article>
+          <article class="price-card"><h3>Укладки и уход</h3><ul><li><span>Простая укладка</span><strong>от 850 ₽</strong></li><li><span>Сложная укладка</span><strong>от 1 200 ₽</strong></li><li><span>Торжественная причёска</span><strong>от 2 200 ₽</strong></li><li><span>Восстановление волос</span><strong>от 1 100 ₽</strong></li></ul></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="shell section reveal" id="gallery">
+      <div class="section-heading"><h2>Атмосфера и направления салона.</h2><p>Визуальный блок показывает премиальный характер SANDRA: волосы, маникюр, косметология и уютное пространство.</p></div>
+      <div class="gallery">
+        <div class="gallery-item wide"><img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=1100&q=85" alt="Укладка волос в салоне красоты"></div>
+        <div class="gallery-item tall"><img src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&fit=crop&w=800&q=85" alt="Премиальная косметика и уход"></div>
+        <div class="gallery-item small"><img src="https://images.unsplash.com/photo-1600948836101-f9ffda59d250?auto=format&fit=crop&w=900&q=85" alt="Окрашивание волос"></div>
+        <div class="gallery-item small"><img src="https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?auto=format&fit=crop&w=900&q=85" alt="Маникюр и уход за руками"></div>
+        <div class="gallery-item wide"><img src="https://images.unsplash.com/photo-1522338242992-e1a54906a8da?auto=format&fit=crop&w=1100&q=85" alt="Кисти для макияжа и beauty-детали"></div>
+      </div>
+    </section>
+
+    <section class="shell section reveal" id="contacts">
+      <div class="section-heading"><h2>Запишитесь в SANDRA.</h2><p>Позвоните, напишите на почту или откройте салон в Яндекс.Картах. Режим работы: ежедневно с 10:00 до 21:00.</p></div>
+      <div class="booking-grid">
+        <div class="glass-card booking-card">
+          <h3>Контакты</h3>
+          <ul class="contact-list">
+            <li><span>Адрес</span><strong>СПб, просп. Ветеранов, 146/22</strong></li>
+            <li><span>Телефон</span><strong><a href="tel:+78127306968">+7 (812) 730-69-68</a></strong></li>
+            <li><span>Email</span><strong><a href="mailto:info@sandra-spb.ru">info@sandra-spb.ru</a></strong></li>
+            <li><span>Район</span><strong>Красносельский · Лигово</strong></li>
+          </ul>
+          <h3 style="margin-top: 1.6rem;">Режим работы</h3>
+          <ul class="hours"><li><span>Понедельник — воскресенье</span><strong>10:00 — 21:00</strong></li></ul>
+          <div class="social-links" aria-label="Социальные сети SANDRA">
+            <a href="https://vk.com/sandra_spb" target="_blank" rel="noopener">VK</a>
+            <a href="https://t.me/sandra_spb" target="_blank" rel="noopener">Telegram</a>
+            <a href="https://instagram.com/sandra_spb" target="_blank" rel="noopener">Instagram</a>
+          </div>
+          <div class="hero-actions" style="margin-top: 1.5rem;"><a class="button" href="tel:+78127306968">Позвонить</a><a class="button secondary" href="https://yandex.ru/maps/org/sandra/37844954477" target="_blank" rel="noopener">Открыть карту</a></div>
+        </div>
+        <div class="glass-card booking-card">
+          <h3>Быстрая заявка</h3>
+          <form class="form" action="mailto:info@sandra-spb.ru" method="post" enctype="text/plain">
+            <input type="text" name="name" placeholder="Ваше имя" required>
+            <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" required>
+            <select name="service" required>
+              <option value="">Выберите услугу</option>
+              <option>Женские стрижки</option>
+              <option>Мужские стрижки</option>
+              <option>Окрашивание волос</option>
+              <option>Маникюр / педикюр</option>
+              <option>Брови и ресницы</option>
+              <option>Косметология</option>
+              <option>Депиляция и шугаринг</option>
+            </select>
+            <textarea name="comment" placeholder="Комментарий или желаемая дата"></textarea>
+            <button class="button" type="submit">Отправить заявку</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="shell section reveal" aria-label="Карта салона">
+      <div class="glass-card map-card"><iframe src="https://yandex.ru/map-widget/v1/?ll=30.156874%2C59.833809&z=18&pt=30.156874,59.833809,pm2rdm" title="SANDRA на карте" loading="lazy" allowfullscreen></iframe></div>
+    </section>
+  </main>
+
+  <footer class="shell footer"><div class="footer-inner"><span>© 2026 SANDRA — салон красоты.</span><span>Санкт-Петербург, просп. Ветеранов, 146/22 · +7 (812) 730-69-68</span></div></footer>
+</body>
+</html>
