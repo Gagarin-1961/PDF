@@ -13,6 +13,7 @@ from collections import defaultdict
 from typing import Any
 
 import httpx
+from dotenv import load_dotenv
 from aiogram import Bot, Dispatcher, Router, F
 from aiogram.enums import ChatAction, ParseMode
 from aiogram.filters import Command, CommandStart
@@ -27,6 +28,11 @@ logging.basicConfig(
     stream=sys.stdout,
 )
 logger = logging.getLogger(__name__)
+
+# ---------------------------------------------------------------------------
+# Load .env file (if present) so tokens can live outside the source code
+# ---------------------------------------------------------------------------
+load_dotenv()
 
 # ---------------------------------------------------------------------------
 # Configuration from environment

@@ -30,10 +30,9 @@ source .venv/bin/activate
 # 3. Установите зависимости
 pip install -r requirements.txt
 
-# 4. Задайте переменные окружения
-export TELEGRAM_BOT_TOKEN="123456:ABC-DEF..."
-export QWEN_TOKEN="sk-..."
-export QWEN_MODEL="qwen-plus"  # необязательно, по умолчанию qwen-plus
+# 4. Создайте файл .env из шаблона и заполните токены
+cp .env.example .env
+# Отредактируйте .env — впишите свои TELEGRAM_BOT_TOKEN и QWEN_TOKEN
 
 # 5. Запустите бота
 python bot.py
